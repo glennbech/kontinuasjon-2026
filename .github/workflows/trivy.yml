@@ -28,7 +28,7 @@ jobs:
           docker build -t quiz-app:${{ github.sha }} .
 
       - name: Scan container image
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: quiz-app:${{ github.sha }}
           format: template
@@ -37,7 +37,7 @@ jobs:
           severity: CRITICAL,HIGH
 
       - name: Scan repository filesystem
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@master
         with:
           scan-type: fs
           ignore-unfixed: true
